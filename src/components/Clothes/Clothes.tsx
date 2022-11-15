@@ -4,9 +4,10 @@ import ClotheItem from './ClotheItem';
 
 interface Props {
   clothes: Clothe[];
+  addToCart: (clothe: Clothe) => void;
 }
 
-const Clothes: React.FC<Props> = ({clothes}) => {
+const Clothes: React.FC<Props> = ({clothes, addToCart}) => {
   return (
    <>
      <h4>Clothes</h4>
@@ -14,6 +15,7 @@ const Clothes: React.FC<Props> = ({clothes}) => {
        <ClotheItem
          key={clothe.id}
          clothe={clothe}
+         onClick={() => addToCart(clothe)}
        />
      ))}
    </>

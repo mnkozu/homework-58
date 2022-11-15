@@ -3,16 +3,17 @@ import {Clothe} from "../../types";
 
 interface Props {
   clothe: Clothe;
+  onClick: React.MouseEventHandler;
 }
 
-const ClotheItem: React.FC<Props> = ({clothe}) => {
+const ClotheItem: React.FC<Props> = ({clothe, onClick}) => {
   const image = clothe.image;
   const imageStyle = {
     background: `url(${image}) no-repeat center center / cover`
   };
 
   return (
-    <div className="card mb-2">
+    <div className="card mb-2" onClick={onClick}>
       <div className="row no-gutters">
         <div className="col-sm-4 rounded-start" style={imageStyle}/>
         <div className="col-sm-8"><div className="card-body">
