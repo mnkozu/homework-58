@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Clothes from "./components/Clothes/Clothes";
 import Cart from './components/Cart/Cart';
 import {CartClothe, Clothe} from "./types";
+import Alert from "./components/Alert/Alert";
 
 function App() {
   const [clothes, setClothes] = useState<Clothe[]>([
@@ -30,6 +31,17 @@ function App() {
     });
   };
 
+  const closeAlert = () => {
+    console.log("closed");
+  };
+
+  const [showAlert, setShowAlert] = useState(false);
+
+  const cancel = () => {
+    console.log("closed");
+    setShowAlert(false);
+  };
+
   return (
     <>
       <header>
@@ -42,6 +54,17 @@ function App() {
           </div>
           <div className="col">
             <Cart cartClothes={cartClothes}/>
+          </div>
+          <div className="col">
+            <Alert
+              type="warning"
+              onDismiss={closeAlert}
+              show={showAlert}
+              onCancel={cancel}
+            >
+              This is a warning type alert
+            </Alert>
+            <Alert type="success">This is a success type alert</Alert>
           </div>
         </div>
       </main>
